@@ -1,0 +1,20 @@
+# A Gemfile
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'shotgun'
+gem 'tux'
+gem 'activerecord', :require => 'active_record'
+gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'require_all'
+gem 'rake'
+gem 'sqlite3'
+gem 'thin'
+gem 'pry'
+
+gem 'guard-rspec'
+gem 'simplecov'
+gem 'rspec'
+gem 'capybara'
+gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+gem 'rack-test'
