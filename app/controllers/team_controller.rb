@@ -1,7 +1,7 @@
 class TeamController < ApplicationController
 
 	get '/' do
-		erb: 'splash/teaser'
+		erb :'splash/teaser'
 	end
 
 end
