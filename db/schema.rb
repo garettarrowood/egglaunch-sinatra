@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 4) do
   add_index "rule_votes", ["team_id"], name: "index_rule_votes_on_team_id"
 
   create_table "rules", force: :cascade do |t|
-    t.string "content"
+    t.string  "content"
+    t.boolean "affirmed?"
   end
 
   create_table "teams", force: :cascade do |t|

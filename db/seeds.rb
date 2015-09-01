@@ -20,6 +20,8 @@ opinion3 = Rule_vote.create(yes?: false)
 opinion4 = Rule_vote.create(yes?: true)
 opinion5 = Rule_vote.create(yes?: true)
 
+binding.pry
+
 rule1.rule_votes << opinion1
 rule1.rule_votes << [opinion2, opinion3, opinion4, opinion5]
 team
