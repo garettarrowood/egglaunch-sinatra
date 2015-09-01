@@ -1,0 +1,16 @@
+<%= erb :'layouts/_header' %>
+
+<div class="container">
+	<div class="row">
+		<h3>You think you've got what it takes?!</h3>
+		<h5>Create account:</h5>
+		<form action='/member/new' method="POST">
+		  Username: <input name="username"><br>
+		  Email:    <input name="email"><br>
+		  Password: <input name="password"><br>
+		  <input type="submit" value="Submit">
+		</form>
+	</div>
+</div>
+
+<%= erb :'layouts/_footer' %>

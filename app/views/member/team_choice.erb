@@ -1,0 +1,16 @@
+<%= erb :'layouts/_header' %>
+
+<div class="container">
+	<div class="row">
+    <h2>Thanks for joining up <%= @member.name %>!</h2>
+    <h4>Which team are you on?</h4>
+    <form action="/" method="POST">
+    <% Team.all.each do |team| %>
+
+
+    <% end %>
+
+
+
+
+<%= erb :'layouts/_footer' %>

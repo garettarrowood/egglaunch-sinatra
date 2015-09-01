@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 4) do
 
   create_table "members", force: :cascade do |t|
+    t.string  "slug"
     t.string  "name"
     t.string  "email"
     t.integer "team_id"
