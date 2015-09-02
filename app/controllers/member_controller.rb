@@ -5,7 +5,11 @@ class MemberController < ApplicationController
 	end
 
 	get '/member/new' do
-		erb :'member/new'
+		if session[:user] == nil
+		  erb :'member/new'
+		else
+			erb :'member/logout-first'
+		end
 	end
 
 	get '/member/reset' do
