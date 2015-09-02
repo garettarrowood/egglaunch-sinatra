@@ -1,0 +1,14 @@
+<%= erb :'layouts/_header' %>
+
+
+team name display - post board? - agreed upon rules - rules pending votes
+
+Team: <%= @team.name %><br> 
+Member: <%= @member.name %><br>
+
+<form action="/logout" method="POST">
+<input type="submit" value="Logout">
+</form>
+
+
+<%= erb :'layouts/_footer' %>

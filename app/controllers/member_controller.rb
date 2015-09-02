@@ -23,7 +23,12 @@ class MemberController < ApplicationController
 			redirect '/member/tryagain'
 		else
 			if params[:password] == user.password
-				redirect "/team"
+				if user.team_id != nil
+					session[:user] = user.id
+				  redirect "/team/#{user.team_id}"
+				else
+					redirect "/member/#{user.slug}"
+				end
 			else
 				redirect '/member/tryagain'
 			end

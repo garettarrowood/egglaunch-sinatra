@@ -8,13 +8,11 @@
       <% Team.all.each do |team| %>
       	<%= team.name %><input type="radio" name="team" value="<%= team.name %>"><br>
       <% end %>
-    <h4>Or are you starting a new team?</h4>
+      <h4>Or are you starting a new team?</h4>
     	I'm launching this <input type="radio" name="team" value="new"><br><br>
     	<input type="submit" value="JOIN UP">
     </form>
   </div>
 </div>
-
-
 
 <%= erb :'layouts/_footer' %>
