@@ -30,6 +30,10 @@ class MemberController < ApplicationController
 		end
 	end
 
+	get '/member/tryagain' do
+		erb :'member/tryagain'
+	end
+
 	get '/member/:slug' do
 		@member = Member.find_by(slug: params[:slug])
 		erb :'member/team_choice'

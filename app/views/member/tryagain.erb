@@ -1,0 +1,14 @@
+<%= erb :'layouts/_header' %>
+
+<h1>Oops! Your username, password, or both are wrong. Try again!</h1>
+
+<form action="/member" method="POST">
+  Username: <input name="username"><br>
+	Password: <input name="password"><br>
+	<input type="submit" value="Login">
+</form>
+
+New member? <a href="/member/new">Click here.</a>
+
+
+<%= erb :'layouts/_footer' %>
