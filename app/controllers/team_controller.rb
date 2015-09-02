@@ -37,7 +37,6 @@ class TeamController < ApplicationController
 		team = Team.find_by(id: params[:id])
 		member = Member.find_by(id: session[:user])
 		message = Post.create(content: params[:message], member_id: member.id)
-		# binding.pry
 		redirect "/team/#{team.id}"
 	end
 

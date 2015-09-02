@@ -26,15 +26,17 @@
 
 Post team news, meeting times, plans, and shout outs here:
 <form action="/team-message/<%= @team.id %>" method="POST">
-  <input type="text" name="message">
+  <input name="message" cols="80" rows="20">
   <input type="submit" value="Send message">
 </form>
 
-<% Post.all.reverse.each do |post| %><br>
+<textarea cols="80" rows="20">
+<% Post.all.reverse.each do |post| %>
   <% member = Member.find_by(id: post.member_id) %>
-  <%= member.name %>: <%= post.content %><br>
-  Posted at: <%= post.created_at %><br>
+  <%= member.name %>: <%= post.content %>
+  Posted at: <%= post.created_at %>
 <% end %>
+</textarea>
 
 <%= erb :'layouts/_footer' %>
 
