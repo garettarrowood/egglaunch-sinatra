@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
 	belongs_to :team
+	has_many   :posts
 
 	before_create { |m| m.slug = m.to_slug }
 

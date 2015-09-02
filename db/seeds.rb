@@ -4,8 +4,8 @@ teamegg = Team.create(name: "TEAM EGG!", email: "eggs@eggs.eggs")
 
 rule1 = Rule.create(content: "Must carry egg")
 rule2 = Rule.create(content: "Must be brown eggs")
-rule3 = Rule.create(content: "Must travel at least 10 feet")
-rule4 = Rule.create(content: "Egg must not crack on landing")
+rule3 = Rule.create(content: "Must travel at least 10 feet", affirmed?: true)
+rule4 = Rule.create(content: "Egg must not crack on landing", affirmed?: true)
 
 crazybob = Member.create(name: "Bob", email: "lick@lick.org")
 crazyliz = Member.create(name: "Liz", email: "tick@tick.org")

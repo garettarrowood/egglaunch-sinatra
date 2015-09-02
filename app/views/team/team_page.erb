@@ -1,14 +1,40 @@
 <%= erb :'layouts/_header' %>
 
+<h1><%= @team.name %></h1>
 
-team name display - post board? - agreed upon rules - rules pending votes
+<h3>Confirmed rules</h3>
+<ul>
+  <% Rule.all.each do |rule| %>
+  	<% if rule.affirmed? %>
+      <li><%= rule.content %></li>
+   <% end %>
+  <% end %>
+</ul>
 
-Team: <%= @team.name %><br> 
-Member: <%= @member.name %><br>
+<h3>Rules that need votes. Click on rule to vote!</h3>
+<ul>
+  <% Rule.all.each do |rule| %>
+  	<% unless rule.affirmed? %>
+      <li><a href="/rules/vote/<%= rule.id %>"><%= rule.content %></a></li>
+    <% end %>
+  <% end %>
+</ul>
 
 <form action="/logout" method="POST">
-<input type="submit" value="Logout">
+  <input type="submit" value="Logout">
 </form>
 
+Post team news, meeting times, plans, and shout outs here:
+<form action="/team-message/<%= @team.id %>" method="POST">
+  <input type="text" name="message">
+  <input type="submit" value="Send message">
+</form>
+
+<% Post.all.reverse.each do |post| %><br>
+  <% member = Member.find_by(id: post.member_id) %>
+  <%= member.name %>: <%= post.content %><br>
+  Posted at: <%= post.created_at %><br>
+<% end %>
 
 <%= erb :'layouts/_footer' %>
+

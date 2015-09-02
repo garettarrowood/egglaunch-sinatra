@@ -33,8 +33,22 @@ class TeamController < ApplicationController
 		erb :'team/team_page'
 	end
 
-#sign out link with route that makes singular session key = nil
+	post "/team-message/:id" do
+		team = Team.find_by(id: params[:id])
+		member = Member.find_by(id: session[:user])
+		message = Post.create(content: params[:message], member_id: member.id)
+		# binding.pry
+		redirect "/team/#{team.id}"
+	end
 
+	post "/logout" do
+		session[:user] = nil
+		redirect "/logout"
+	end
+
+	get "/logout" do
+		erb :'team/logout'
+	end
 
 end
 
