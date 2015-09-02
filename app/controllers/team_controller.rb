@@ -27,6 +27,11 @@ class TeamController < ApplicationController
 		erb :'team/new'
 	end
 
+	post "/team/new" do
+		team = Team.create(name: params[:name], email: params[:email])
+		redirect "/team/#{team.id}"
+	end
+
 	get "/team/:id" do
 		@team = Team.find_by(id: params[:id])
 		@member = Member.find_by(id: session[:user])

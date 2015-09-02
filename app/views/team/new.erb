@@ -1,7 +1,10 @@
 <%= erb :'layouts/_header' %>
 
-
-New team form
+<form action="/team/new" method="POST"><br>
+Name: <input name="name"><br>
+Team email: <input name="email"><br>
+<input type="submit" value="Create Team">
+</form>
 
 
 <%= erb :'layouts/_footer' %>
