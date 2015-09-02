@@ -1,0 +1,10 @@
+<%= erb :'layouts/_header' %>
+
+<h1>What's your idea?</h1>
+
+<form action="/rules/new" method="POST">
+Proposed rule:<input name="rule"><br><br>
+<input type="submit" value="Send">
+</form>
+
+<%= erb :'layouts/_footer' %>

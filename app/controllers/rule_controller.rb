@@ -1,5 +1,15 @@
 class RuleController < ApplicationController
 	
+	get "/rules/new" do
+		erb :'rules/new'
+	end
+
+	post "/rules/new" do
+		member = Member.find_by(id: session[:user])
+		new_rule = Rule.create(content: params[:rule])
+		redirect "/team/#{member.team_id}"
+	end
+
 	get "/rules/vote/:id" do
 		@rule = Rule.find_by(id: params[:id])
 		erb :'rules/vote'
