@@ -1,0 +1,27 @@
+<%= erb :'layouts/_header' %>
+
+<%= @rule.content %><br>
+
+<form action="/vote/yes/<%= @rule.id %>" method="POST">
+<input type="submit" name="<%= @rule.id %>[yes]" value="Yes vote">
+</form>
+
+<form action="/vote/no/<%= @rule.id %>" method="POST">
+<input type="submit" name="<%= @rule.id %>[no]" value="No vote">
+</form>
+
+<form action="/logout" method="POST">
+  <input type="submit" value="Logout">
+</form>
+
+Posts:<br>
+
+<textarea cols="80" rows="20">
+  <% Post.all.reverse.each do |post| %>
+    <% member = Member.find_by(id: post.member_id) %>
+    <%= member.name %>: <%= post.content %>
+    Posted at: <%= post.created_at %>
+  <% end %>
+</textarea>
+
+<%= erb :'layouts/_footer' %>

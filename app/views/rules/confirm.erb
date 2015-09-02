@@ -1,0 +1,13 @@
+<%= erb :'layouts/_header' %>
+
+<h1>Your team, <%= @team.name %>, just voted <% if @rule_vote.yes? == true %>YES <% else %>NO <% end %>for this rule:</h1>
+
+<p><%= @rule.content %></p>
+
+<a href="/team/<%= @team.id %>">Back to your team page</a>
+
+<form action="/logout" method="POST">
+  <input type="submit" value="Logout">
+</form>
+
+<%= erb :'layouts/_footer' %>

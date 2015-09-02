@@ -5,4 +5,5 @@ class ApplicationController < Sinatra::Base
 
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application's_super_secret_secret"
+  
 end

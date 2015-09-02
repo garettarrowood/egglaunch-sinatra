@@ -15,7 +15,15 @@
 <ul>
   <% Rule.all.each do |rule| %>
   	<% unless rule.affirmed? %>
-      <li><a href="/rules/vote/<%= rule.id %>"><%= rule.content %></a></li>
+      <li><a href="/rules/vote/<%= rule.id %>"><%= rule.content %></a>
+      <% if Rule_vote.find_by(rule_id: rule.id, team_id: @team.id) != nil %>
+        <% if Rule_vote.find_by(rule_id: rule.id, team_id: @team.id).yes? == true %>
+          <a>Your team voted YES!</a>
+        <% else %>
+          <a>Your team voted NO!</a>
+        <% end %>
+      <% end %>
+      </li>
     <% end %>
   <% end %>
 </ul>
@@ -24,18 +32,18 @@
   <input type="submit" value="Logout">
 </form>
 
-Post team news, meeting times, plans, and shout outs here:
+Post news, meeting times, plans, and shout outs here:
 <form action="/team-message/<%= @team.id %>" method="POST">
   <input name="message" cols="80" rows="20">
   <input type="submit" value="Send message">
 </form>
 
 <textarea cols="80" rows="20">
-<% Post.all.reverse.each do |post| %>
-  <% member = Member.find_by(id: post.member_id) %>
-  <%= member.name %>: <%= post.content %>
-  Posted at: <%= post.created_at %>
-<% end %>
+  <% Post.all.reverse.each do |post| %>
+    <% member = Member.find_by(id: post.member_id) %>
+    <%= member.name %>: <%= post.content %>
+    Posted at: <%= post.created_at %>
+  <% end %>
 </textarea>
 
 <%= erb :'layouts/_footer' %>
