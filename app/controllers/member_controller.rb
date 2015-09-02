@@ -8,18 +8,26 @@ class MemberController < ApplicationController
 		erb :'member/new'
 	end
 
+	get '/member/reset' do
+		reset_session
+	end
+
 	post '/member/new' do
-		member = Member.create(name: params[:username], email: params[:email])
-		session[:members] = {}
-		session[:members][params[:username]] = params[:password]
+		member = Member.create(name: params[:username], email: params[:email], password: params[:password])
 		redirect "/member/#{member.to_slug}"
 	end
 
 	post '/member' do
 		user = Member.find_by(name: params[:username])
 		if user == nil
-			redirect '/something that says no such user'
-		end 
+			redirect '/member/tryagain'
+		else
+			if params[:password] == user.password
+				redirect "/team"
+			else
+				redirect '/member/tryagain'
+			end
+		end
 	end
 
 	get '/member/:slug' do

@@ -4,6 +4,7 @@ class CreateMembers < ActiveRecord::Migration
 			t.string     :slug
 			t.string     :name
 			t.string     :email
+			t.string     :password
 			t.belongs_to :team, index: true
 		end
 	end

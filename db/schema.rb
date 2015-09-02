@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string  "slug"
     t.string  "name"
     t.string  "email"
+    t.string  "password"
     t.integer "team_id"
   end
 

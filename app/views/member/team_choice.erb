@@ -4,12 +4,17 @@
 	<div class="row">
     <h2>Thanks for joining up <%= @member.name %>!</h2>
     <h4>Which team are you on?</h4>
-    <form action="/" method="POST">
-    <% Team.all.each do |team| %>
+    <form action="/team/login" method="POST">
+      <% Team.all.each do |team| %>
+      	<%= team.name %><input type="radio" id="<%= team.name %>" name="team"><br>
+      <% end %>
+    <h4>Or are you starting a new team?</h4>
+    	I'm launching this <input type="radio" id="new" name="team"><br><br>
+    	<input type="submit" value="JOIN UP">
+    </form>
 
-
-    <% end %>
-
+  </div>
+</div>
 
 
 
